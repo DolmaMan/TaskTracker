@@ -1,0 +1,204 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task Tracker</title>
+    <meta name="description" content="Task Tracker — управление задачами и отчёты" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="#tasks" aria-label="Перейти к задачам">
+                <strong>Task Tracker</strong>
+            </a>
+            <p>Трекер задач</p>
+        </div>
+
+        <nav aria-label="Основная навигация">
+            <ul>
+                <li><a href="#tasks">Задачи</a></li>
+                <li><a href="/reports.html" aria-current="page">Отчёты</a></li>
+            </ul>
+        </nav>
+        <hr />
+    </header>
+
+    <main id="content">
+        <!-- ЗАДАЧИ -->
+        <section id="tasks" aria-labelledby="tasks-title">
+            <header>
+                <h1 id="tasks-title">Задачи</h1>
+                <p>Создание, просмотр и управление задачами.</p>
+            </header>
+
+            <!-- Фильтры -->
+            <section aria-labelledby="filters-title">
+                <h2 id="filters-title">Фильтры</h2>
+
+                <form id="filters-form" action="#" method="get" autocomplete="off">
+                    <fieldset>
+                        <legend>Параметры фильтрации</legend>
+
+                        <div>
+                            <label for="status">Статус</label>
+                            <select id="status" name="status">
+                                <option value="">Все</option>
+                                <option value="New">New</option>
+                                <option value="InProgress">InProgress</option>
+                                <option value="Done">Done</option>
+                                <option value="Overdue">Overdue</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="assignee">Исполнитель</label>
+                            <select id="assignee" name="assigneeId">
+                                <option value="">Все</option>
+                                <!-- TODO заполнить -->
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="dueBefore">Дедлайн до</label>
+                            <input id="dueBefore" name="dueBefore" type="date" />
+                        </div>
+
+                        <div>
+                            <label for="dueAfter">Дедлайн после</label>
+                            <input id="dueAfter" name="dueAfter" type="date" />
+                        </div>
+
+                        <div>
+                            <label for="tags">Теги</label>
+                            <select id="tags" name="tagId" multiple size="4" aria-describedby="tags-hint">
+                                <!-- TODO заполнить -->
+                                <option value="1">bug</option>
+                                <option value="2">feature</option>
+                                <option value="3">refactor</option>
+                                <option value="4">docs</option>
+                            </select>
+                            <small id="tags-hint">Можно выбрать несколько тегов (Ctrl + ЛКМ)</small>
+                        </div>
+
+                        <div>
+                            <button type="submit">Применить</button>
+                            <button type="reset">Сбросить</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+
+            <!-- Таблица задач -->
+            <section aria-labelledby="list-title">
+                <h2 id="list-title">Список задач</h2>
+
+                <div role="status" aria-live="polite" id="tasks-status">
+                </div>
+
+                <table>
+                    <caption class="sr-only">Таблица задач</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Заголовок</th>
+                            <th scope="col">Исполнитель</th>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Дедлайн</th>
+                            <th scope="col">Приоритет</th>
+                            <th scope="col">Теги</th>
+                            <th scope="col">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasks-tbody">
+                        <!-- TODO заполнить таблицу -->
+                        <tr>
+                            <td colspan="7">Задач пока нет</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Форма создания/редактирования -->
+            <section aria-labelledby="editor-title">
+                <h2 id="editor-title">Создать / редактировать задачу</h2>
+
+                <form id="task-form" action="#" method="post" autocomplete="off">
+                    <fieldset>
+                        <legend>Данные задачи</legend>
+
+                        <input type="hidden" id="taskId" name="id" />
+
+                        <div>
+                            <label for="title">Заголовок *</label>
+                            <input id="title" name="title" type="text" minlength="3" maxlength="200" required />
+                        </div>
+
+                        <div>
+                            <label for="description">Описание</label>
+                            <textarea id="description" name="description" maxlength="1000" rows="4"></textarea>
+                        </div>
+
+                        <div>
+                            <label for="assigneeId">Исполнитель *</label>
+                            <select id="assigneeId" name="assigneeId" required>
+                                <option value="" disabled selected>Выберите исполнителя</option>
+                                <!-- TODO заполнить -->
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="dueDate">Дедлайн *</label>
+                            <input id="dueDate" name="dueDate" type="datetime-local" required />
+                        </div>
+
+                        <div>
+                            <label for="priority">Приоритет *</label>
+                            <select id="priority" name="priority" required>
+                                <option value="1">Low</option>
+                                <option value="2" selected>Medium</option>
+                                <option value="3">High</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="statusField">Статус *</label>
+                            <select id="statusField" name="status" required>
+                                <option value="0">New</option>
+                                <option value="1">InProgress</option>
+                                <option value="2">Done</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="tagIds">Теги</label>
+                            <select id="tagIds" name="tagIds" multiple size="4">
+                                <option value="1">bug</option>
+                                <option value="2">feature</option>
+                                <option value="3">refactor</option>
+                                <option value="4">docs</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <button type="submit">Сохранить</button>
+                            <button type="button" id="cancel-edit">Отмена</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <hr />
+        <p>
+            Всем привет
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
