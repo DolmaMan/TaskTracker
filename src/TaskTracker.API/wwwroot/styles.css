@@ -183,3 +183,44 @@ hr {
     border-color: #b00020 !important;
     box-shadow: 0 0 0 2px rgba(176, 0, 32, 0.08);
 }
+
+.report-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 12px;
+    background: #fff;
+}
+
+.report-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.report-card__title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.report-card__badge {
+    background: rgba(231, 76, 60, 0.12);
+    color: #b00020;
+    border: 1px solid rgba(231, 76, 60, 0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.report-task-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.muted {
+    color: #666;
+    font-size: 0.92rem;
+}

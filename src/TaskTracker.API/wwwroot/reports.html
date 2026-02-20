@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <main>
+        <section id="reports" aria-labelledby="reports-title">
+            <header>
+                <h1 id="reports-title">Отчёты</h1>
+                <p>Сводная статистика по задачам.</p>
+            </header>
+
+            <section aria-labelledby="status-report-title">
+                <h2 id="status-report-title">Отчёт по статусам</h2>
+                <p>Количество задач в каждом статусе.</p>
+
+                <div role="status" aria-live="polite" id="status-report-state"></div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Количество</th>
+                        </tr>
+                    </thead>
+                    <tbody id="status-report-tbody">
+                        <tr>
+                            <td>New</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>InProgress</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Done</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Overdue</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section aria-labelledby="overdue-report-title">
+                <h2 id="overdue-report-title">Просроченные по исполнителям</h2>
+                <p>Список исполнителей и их просроченные задачи.</p>
+
+                <div role="status" aria-live="polite" id="overdue-report-state"></div>
+
+                <div id="overdue-report-content">
+                    <p>Нет данных</p>
+                </div>
+            </section>
+
+            <section aria-labelledby="avg-report-title">
+                <h2 id="avg-report-title">Среднее время закрытия</h2>
+                <p>Среднее время от создания до закрытия (в днях) по задачам в статусе Done.</p>
+
+                <div role="status" aria-live="polite" id="avg-report-state"></div>
+
+                <p>
+                    <strong>Среднее:</strong>
+                    <span id="avg-completion-days">—</span> дней
+                </p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <hr />
+        <p>Task Tracker</p>
+    </footer>
+    <script src="reports.js"></script>
+</body>
+</html>
