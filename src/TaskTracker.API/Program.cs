@@ -6,18 +6,18 @@ using TaskTracker.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавление сервисов в контейнер DI
+// Р”РѕР±Р°РІР»РµРЅРёРµ СЃРµСЂРІРёСЃРѕРІ РІ РєРѕРЅС‚РµР№РЅРµСЂ DI
 builder.Services.AddControllers();
 
-// Конфигурация Entity Framework Core с SQLite
+// РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ Entity Framework Core СЃ SQLite
 builder.Services.AddDbContext<TaskTrackerDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Регистрация сервисов приложения
+// Р РµРіРёСЃС‚СЂР°С†РёСЏ СЃРµСЂРІРёСЃРѕРІ РїСЂРёР»РѕР¶РµРЅРёСЏ
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<IReportService, ReportService>();
 
-// Конфигурация Swagger/OpenAPI
+// РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -25,7 +25,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "Task Tracker API",
         Version = "v1.0",
-        Description = "API для управления задачами и получения отчётов",
+        Description = "API РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ Р·Р°РґР°С‡Р°РјРё Рё РїРѕР»СѓС‡РµРЅРёСЏ РѕС‚С‡С‘С‚РѕРІ",
         Contact = new OpenApiContact
         {
             Name = "Task Tracker Team",
@@ -33,7 +33,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-    // Включение XML комментариев для Swagger
+    // Р’РєР»СЋС‡РµРЅРёРµ XML РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РґР»СЏ Swagger
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     if (File.Exists(xmlPath))
@@ -42,7 +42,7 @@ builder.Services.AddSwaggerGen(c =>
     }
 });
 
-// Конфигурация CORS (для фронтенда)
+// РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ CORS (РґР»СЏ С„СЂРѕРЅС‚РµРЅРґР°)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -55,14 +55,14 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Применение миграций и инициализация БД при запуске
+// РџСЂРёРјРµРЅРµРЅРёРµ РјРёРіСЂР°С†РёР№ Рё РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Р‘Р” РїСЂРё Р·Р°РїСѓСЃРєРµ
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<TaskTrackerDbContext>();
     dbContext.Database.EnsureCreated();
 }
 
-// Конфигурация HTTP pipeline
+// РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ HTTP pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
