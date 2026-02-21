@@ -1,0 +1,226 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.5;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #2c6bed;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+header,
+main,
+footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    padding-bottom: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+    margin: 8px 0 0 0;
+}
+
+nav a {
+    font-weight: 500;
+}
+
+section {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+form {
+    margin-top: 12px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+    fieldset > div {
+        margin-bottom: 12px;
+    }
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #2c6bed;
+        box-shadow: 0 0 0 2px rgba(44, 107, 237, 0.1);
+    }
+
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2c6bed;
+    color: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+    button:hover {
+        background-color: #1f4fbf;
+    }
+
+    button[type="reset"],
+    button[type="button"] {
+        background-color: #777;
+    }
+
+        button[type="reset"]:hover,
+        button[type="button"]:hover {
+            background-color: #555;
+        }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f2f5;
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.status-new {
+    color: #2c6bed;
+    font-weight: 500;
+}
+
+.status-inprogress {
+    color: #e67e22;
+    font-weight: 500;
+}
+
+.status-done {
+    color: #2ecc71;
+    font-weight: 500;
+}
+
+.status-overdue {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 24px 0;
+}
+
+.field-error {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #b00020;
+}
+
+[aria-invalid="true"] {
+    border-color: #b00020 !important;
+    box-shadow: 0 0 0 2px rgba(176, 0, 32, 0.08);
+}
+
+.report-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 12px;
+    background: #fff;
+}
+
+.report-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.report-card__title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.report-card__badge {
+    background: rgba(231, 76, 60, 0.12);
+    color: #b00020;
+    border: 1px solid rgba(231, 76, 60, 0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.report-task-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.muted {
+    color: #666;
+    font-size: 0.92rem;
+}
