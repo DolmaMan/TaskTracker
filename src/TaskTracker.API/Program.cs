@@ -16,6 +16,7 @@ builder.Services.AddDbContext<TaskTrackerDbContext>(options =>
 // Регистрация сервисов приложения
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 // Конфигурация Swagger/OpenAPI
