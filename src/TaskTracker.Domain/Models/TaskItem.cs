@@ -66,8 +66,8 @@ public class TaskItem
     /// <summary>
     /// Проверяет, просрочена ли задача
     /// </summary>
-    public bool IsOverdue()
+    public bool IsOverdue(DateTime nowUtc)
     {
-        return DueDate < DateTime.UtcNow && Status != TaskStatus.Done;
+        return DueDate < nowUtc && Status != TaskStatus.Done;
     }
 }
