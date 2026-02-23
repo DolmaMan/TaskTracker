@@ -210,7 +210,7 @@ public class TaskService : ITaskService
             Status = task.Status.ToString(),
             Priority = (int)task.Priority,
             Tags = task.Tags.Select(t => new TagDto { Id = t.Id, Name = t.Name }).ToList(),
-            IsOverdue = task.IsOverdue()
+            IsOverdue = task.IsOverdue(DateTime.UtcNow)
         };
     }
 }
