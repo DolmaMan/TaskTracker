@@ -1,4 +1,4 @@
-﻿const API_BASE = "https://localhost:7193";
+﻿const API_BASE = "";
 
 
 const USERS = [
